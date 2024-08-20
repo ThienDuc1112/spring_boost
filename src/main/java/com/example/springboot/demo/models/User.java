@@ -34,6 +34,15 @@ public class User {
         this.mobileNumber = mobileNumber;
         this.email = email;
         this.password = password;
+
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     public User() {

@@ -3,6 +3,7 @@ package com.example.springboot.demo.models;
 import jakarta.persistence.*;
 
 import java.util.Calendar;
+import java.util.List;
 
 @Entity
 @Table(name = "tblProduct")
@@ -18,6 +19,8 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "categoryId")
     private Category category;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<Image> images;
 
     // Add a default constructor
     public Product() {}
@@ -95,5 +98,13 @@ public class Product {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
     }
 }
